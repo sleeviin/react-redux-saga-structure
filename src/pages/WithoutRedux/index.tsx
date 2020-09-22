@@ -4,8 +4,8 @@ import TextFieldWrap from '../../components/TextFieldWrap';
 
 export interface WithoutReduxProps {}
 
-const WithoutRedux: React.SFC<WithoutReduxProps> = () => {
-	const [items, setItems] = useState({});
+const WithoutRedux: React.FC<WithoutReduxProps> = () => {
+	const [items, setItems] = useState<any>({});
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;

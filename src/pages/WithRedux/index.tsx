@@ -4,8 +4,8 @@ import TextFieldWrap from '../../components/TextFieldWrap';
 
 export interface WithReduxProps {}
 
-const WithRedux: React.SFC<WithReduxProps> = () => {
-	const [items, setItems] = useState({});
+const WithRedux: React.FC<WithReduxProps> = () => {
+	const [items, setItems] = useState<any>({});
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -16,7 +16,7 @@ const WithRedux: React.SFC<WithReduxProps> = () => {
 		<Container maxWidth='sm'>
 			<Grid container spacing={2}>
 				<Grid item xs={12}>
-					<Typography>Without Redux Issue</Typography>
+					<Typography>With Redux Fix</Typography>
 				</Grid>
 				<Grid item xs={12}>
 					<Paper style={{ padding: 20 }}>

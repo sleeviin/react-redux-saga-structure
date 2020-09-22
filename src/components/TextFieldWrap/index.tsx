@@ -3,7 +3,7 @@ import * as React from 'react';
 
 export interface TextFieldWrapProps {}
 
-const TextFieldWrap: React.SFC<TextFieldWrapProps> = ({ onChange, name, value }) => {
+const TextFieldWrap: React.FC<any> = ({ onChange, name, value }) => {
 	console.log('render', name);
 	return (
 		<Grid item xs={6}>
