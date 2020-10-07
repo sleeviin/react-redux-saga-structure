@@ -1,6 +1,10 @@
 export default interface Auth {
-	idUser: string;
+	userId: string;
 	name: string;
-	username: string;
 	profileImage: string;
+}
+
+export enum AuthActionTypes {
+	SET_AUTH = '@@auth/SET_AUTH',
+	CLEAR_AUTH = '@@auth/CLEAR_AUTH',
 }

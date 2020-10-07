@@ -12,4 +12,4 @@ const TextFieldWrap: React.FC<any> = ({ onChange, name, value }) => {
 	);
 };
 
-export default TextFieldWrap;
+export default React.useCallback(TextFieldWrap, () => {});

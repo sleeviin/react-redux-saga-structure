@@ -1,14 +1,14 @@
 import { all, call, fork, put, takeEvery } from 'redux-saga/effects';
-import { UsersActionTypes } from '../types/UsersState';
+import { UsersActionTypes } from '../../types/User';
 import { fetchError, fetchSuccess } from '../actions/users';
 import { callApi } from '../../utils/api';
 
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://api.opendota.com';
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:3000';
 
 function* handleFetch() {
 	try {
 		// To call async functions, use redux-saga's `call()`.
-		const res = yield call(callApi, 'get', API_ENDPOINT, '/teams');
+		const res = yield call(callApi, 'get', API_ENDPOINT, '/users');
 
 		if (res.error) {
 			yield put(fetchError(res.error));

@@ -11,7 +11,7 @@ import { History } from 'history';
 import rootSaga from './sagas';
 import createRootReducer from './reducers';
 
-import ApplicationState from './types';
+import ApplicationState from '../types/ApplicationState';
 
 export default function configureStore(history: History): Store<ApplicationState> {
 	const composeEnhancers = composeWithDevTools({});

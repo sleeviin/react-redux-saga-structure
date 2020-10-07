@@ -1,19 +1,26 @@
 import React from 'react';
 import { Grid, TextField } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { setValue } from '../../store/actions/test';
+import ApplicationState from '../../store/types';
 
-export interface TextFieldReduxProps {
-	onChange(value: any): void;
-	name: string;
-	value: string;
-}
+const TextFieldRedux: React.FC<any> = ({ name, test, setValue }) => {
+	console.log('render', name, test[name], !!test[name]);
 
-const TextFieldRedux: React.FC<any> = ({ onChange, name, value }) => {
-	console.log('render', name);
+	const handleChange = (event) => {
+		const { value } = event.target;
+		setValue(value);
+	};
 	return (
 		<Grid item xs={6}>
-			<TextField variant='outlined' fullWidth size='small' name={name} onChange={onChange} value={value || ''} />
+			<TextField variant='outlined' fullWidth size='small' name={name} onChange={handleChange} />
 		</Grid>
 	);
 };
 
-export default TextFieldRedux;
+const mapStateToProps = ({ test }: ApplicationState) => ({
+	test,
+});
+
+const mapDispatchToProps = { setValue };
+export default connect(mapStateToProps, mapDispatchToProps)(TextFieldRedux);

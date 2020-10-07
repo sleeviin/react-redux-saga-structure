@@ -1,5 +1,5 @@
 import { Reducer } from 'redux';
-import UsersState, { UsersActionTypes } from '../types/UsersState';
+import { UsersActionTypes, UsersState } from '../../types/User';
 
 export const initialState: UsersState = {
 	data: [],
@@ -17,6 +17,12 @@ const reducer: Reducer<UsersState> = (state = initialState, action) => {
 		}
 		case UsersActionTypes.FETCH_ERROR: {
 			return { ...state, loading: false, errors: action.payload };
+		}
+		case UsersActionTypes.SELECT_USER: {
+			return { ...state, selected: action.payload };
+		}
+		case UsersActionTypes.CLEAR_SELECTED: {
+			return { ...state, selected: undefined };
 		}
 		default: {
 			return state;
