@@ -9,7 +9,6 @@ import configureStore from '../store';
 import WithoutRedux from './WithoutRedux';
 import WithRedux from './WithRedux';
 
-
 export const history = createBrowserHistory();
 
 export interface AppProps {}
